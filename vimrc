@@ -41,6 +41,7 @@ set number
 set lazyredraw
 
 au BufRead,BufNewFile *.md setf markdown
+au BufRead,BufNewFile *.jbuilder setf ruby
 
 set laststatus=2
 
