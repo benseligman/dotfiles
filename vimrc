@@ -24,6 +24,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'scrooloose/syntastic'
 
+" markdown
+Plug 'junegunn/vim-xmark', { 'do': 'make' }
+
 call plug#end()
 
 colorscheme jellybeans
@@ -31,6 +34,7 @@ colorscheme jellybeans
 " Display options
 filetype plugin indent on
 syntax on
+au BufRead,BufNewFile *.md setf markdown
 set t_Co=256
 
 " Misc
