@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab' "tab completion
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "fuzzy finder
 Plug 'junegunn/fzf.vim' "finder vim bindings
+Plug 'kana/vim-textobj-user' "user text objects
 Plug 'nanotech/jellybeans.vim' "colors
 Plug 'scrooloose/syntastic' "syntax
 Plug 'tpope/vim-commentary' "commenting with gc
@@ -23,7 +24,8 @@ Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 
 " ruby
-Plug 'tpope/vim-rails'
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler'
 
 " markdown
