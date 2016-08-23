@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-cwd=`pwd`
 
-# install dein for managing vim packages
 if [ ! -e ~/.vim/autoload/plug.vim ]; then
+  echo "installing plug for vim packages"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+cwd=`pwd`
 echo "creating symlinks"
-DOTFILES=(vimrc)
-for file in $DOTFILES; do
-  echo $file
+for file in vimrc; do
+  echo " * $file"
   ln -sf $cwd/$file $HOME/.$file
 done
