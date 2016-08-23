@@ -5,15 +5,15 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " general editing
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" colors
-Plug 'nanotech/jellybeans.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "fuzzy finder
+Plug 'junegunn/fzf.vim' "finder vim bindings
+Plug 'nanotech/jellybeans.vim' "colors
+Plug 'scrooloose/syntastic' "syntax
+Plug 'tpope/vim-commentary' "commenting with gc
+Plug 'tpope/vim-endwise' "end blocks
+Plug 'tpope/vim-fugitive'  "git
+Plug 'tpope/vim-unimpaired' "bracket mappings
+Plug 'tpope/vim-vinegar' "netrw more nicely
 
 " gists
 Plug 'mattn/gist-vim'
@@ -22,7 +22,6 @@ Plug 'mattn/webapi-vim'
 " ruby
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
-Plug 'scrooloose/syntastic'
 
 " markdown
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
