@@ -92,6 +92,10 @@ nmap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <Leader>h :History<cr>
 
+" open netrw
+nnoremap <silent> <Leader>v :Vexplore<cr>
+nnoremap <silent> <Leader>s :Explore<cr>
+
 vmap s :!sort<CR>
 map Q @q
 
