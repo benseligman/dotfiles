@@ -41,6 +41,8 @@ set t_Co=256
 set number
 set lazyredraw
 
+runtime macros/matchit.vim
+
 au BufRead,BufNewFile *.md setf markdown
 au BufRead,BufNewFile *.rake setf ruby
 au BufRead,BufNewFile *.rabl setf ruby
@@ -66,8 +68,8 @@ set wildmode=list:longest,full
 """""""""""""""""""""""""
 " Keybindings
 """""""""""""""""""""""""
-let mapleader=" "
-let localmapleader=" "
+let mapleader="\<space>"
+let localmapleader="\<space>"
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -83,6 +85,7 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
 noremap k gk
 noremap j gj
+nmap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
 
 " fzf shortcuts
 nnoremap <silent> <leader>f :Files<cr>
@@ -101,13 +104,3 @@ function! RenameFile()
   endif
 endfunction
 map <Leader>n :call RenameFile()<cr>
-
-"Matchit macro for ruby block text objects
-runtime macros/matchit.vim
-
-if !exists("*UpdatePlugins")
-  function! UpdatePlugins()
-    source ~/.vimrc
-    PlugInstall
-  endfunction
-endif
