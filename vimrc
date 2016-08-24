@@ -39,6 +39,7 @@ filetype plugin indent on
 syntax on
 set t_Co=256
 set number
+set nowrap
 set lazyredraw
 
 runtime macros/matchit.vim
