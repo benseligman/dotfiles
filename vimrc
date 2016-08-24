@@ -17,7 +17,6 @@ Plug 'tpope/vim-fugitive'  "git
 Plug 'tpope/vim-repeat'  "repeat custom commands
 Plug 'tpope/vim-unimpaired' "bracket mappings
 Plug 'tpope/vim-vinegar' "netrw more nicely
-Plug 'Shougo/neomru.vim' "fzf mru search
 
 " gists
 Plug 'mattn/gist-vim'
@@ -85,11 +84,9 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 noremap k gk
 noremap j gj
 
-nnoremap <leader><space> :Files<cr>
-nnoremap <silent> <Leader>m :call fzf#run({
-      \   'source': 'sed "1d" $HOME/.cache/neomru/file',
-      \   'sink': 'e '
-      \ })<CR>
+" fzf shortcuts
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <Leader>h :History<cr>
 
 vmap s :!sort<CR>
 map Q @q
