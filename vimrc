@@ -77,6 +77,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <S-l> gt
+nnoremap <S-h> gT
+
 set backspace=eol,start,indent  " Allow backspacing over indent, eol, & start
 set smarttab                    " Make <tab> and <backspace> smarter
 set expandtab
