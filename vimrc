@@ -99,6 +99,12 @@ nnoremap <silent> <Leader>h :History<cr>
 nnoremap <silent> <Leader>v :Vexplore<cr>
 nnoremap <silent> <Leader>s :Explore<cr>
 
+" save faster
+nnoremap <leader>w :w!<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>wq :wq!<cr>
+
+nnoremap <silent> <leader>; :nohl<cr>
 vmap s :!sort<CR>
 map Q @q
 
