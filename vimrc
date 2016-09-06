@@ -44,10 +44,17 @@ set lazyredraw
 
 runtime macros/matchit.vim
 
+set backspace=eol,start,indent  " Allow backspacing over indent, eol, & start
+set smarttab                    " Make <tab> and <backspace> smarter
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
+
 au BufRead,BufNewFile *.md setf markdown
-au BufRead,BufNewFile *.rake setf ruby
-au BufRead,BufNewFile *.rabl setf ruby
-au BufRead,BufNewFile *.jbuilder setf ruby
+au BufRead,BufNewFile *.rake,*.rabl,*.jbuilder setf ruby
+
+au FileType python set tabstop=4|set shiftwidth=4
 
 set laststatus=2
 
@@ -79,13 +86,6 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <S-l> gt
 nnoremap <S-h> gT
-
-set backspace=eol,start,indent  " Allow backspacing over indent, eol, & start
-set smarttab                    " Make <tab> and <backspace> smarter
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
 noremap k gk
 noremap j gj
