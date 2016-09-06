@@ -1,0 +1,19 @@
+alias u="cd .."
+alias uu="cd ../.."
+alias uuu="cd ../../.."
+
+alias g="git"
+alias gd="git diff"
+alias gfix="git commit --amend"
+alias gcob="git checkout --track -b"
+alias gcom="git checkout master"
+alias gnope="git reset --hard"
+
+alias v="vim"
+alias vi="vim"
+
+alias dot="cd ~/dotfiles"
+
+alias be="bundle exec"
+alias bu="bundle update"
+alias bake="bundle exec rake"
