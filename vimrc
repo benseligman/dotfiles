@@ -30,6 +30,9 @@ Plug 'tpope/vim-bundler'
 " markdown
 Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
+" go
+Plug 'fatih/vim-go', { 'for': 'go' }
+
 call plug#end()
 
 " Display options
@@ -54,7 +57,8 @@ set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 au BufRead,BufNewFile *.md setf markdown
 au BufRead,BufNewFile *.rake,*.rabl,*.jbuilder setf ruby
 
-au FileType python set tabstop=4|set shiftwidth=4
+au FileType python setlocal tabstop=4|setlocal shiftwidth=4
+au FileType go setlocal noexpandtab|setlocal tabstop=8|setlocal shiftwidth=8
 
 set laststatus=2
 
@@ -86,6 +90,8 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <S-l> gt
 nnoremap <S-h> gT
+
+nnoremap <leader>b <C-^>
 
 noremap k gk
 noremap j gj
