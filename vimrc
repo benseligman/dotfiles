@@ -135,6 +135,10 @@ if filereadable(expand("~/.custom.vim"))
   source ~/.custom.vim
 endif
 
+"go highlighting
+let g:go_highlight_functions=1
+let g:go_highlight_types=1
+
 "go key bindings
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
