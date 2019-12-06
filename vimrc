@@ -33,6 +33,7 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 
 " go
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'buoto/gotests-vim', { 'for': 'go' }
 
 call plug#end()
 
@@ -60,6 +61,7 @@ au BufRead,BufNewFile *.rake,*.rabl,*.jbuilder setf ruby
 
 au FileType python setlocal tabstop=4|setlocal shiftwidth=4
 au FileType go setlocal noexpandtab|setlocal tabstop=8|setlocal shiftwidth=8
+au FileType proto setlocal smartindent
 
 set laststatus=2
 
@@ -77,6 +79,9 @@ set showmatch
 set wildmenu
 set wildmode=list:longest,full
 
+" Show me where 80 chars is
+set colorcolumn=80
+hi ColorColumn ctermbg=235 guibg=#2c2d27
 
 """""""""""""""""""""""""
 " Keybindings
@@ -96,27 +101,24 @@ nnoremap <leader>b <C-^>
 
 noremap k gk
 noremap j gj
-nmap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
+nnoremap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
 
 " json
-nnoremap <silent> <leader>j :%!python -m json.tool<cr>
+nnoremap <silent> <leader>jj :%!python -m json.tool<cr>
 
 " fzf shortcuts
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <Leader>h :History<cr>
+nnoremap <Leader>a :Ag 
 
 " open netrw
 nnoremap <silent> <Leader>v :Vexplore<cr>
 nnoremap <silent> <Leader>s :Sexplore<cr>
 
-" save faster
-nnoremap <leader>w :w!<cr>
-nnoremap <leader>q :q<cr>
-nnoremap <leader>wq :wq!<cr>
-
 nnoremap <silent> <leader>; :nohl<cr>
-vmap s :!sort<CR>
-map Q @q
+vnoremap s :!sort<CR>
+noremap Q @q
 
 function! RenameFile()
   let old_name = expand('%')
@@ -127,8 +129,15 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <Leader>n :call RenameFile()<cr>
+nnoremap <Leader>n :call RenameFile()<cr>
 
 if filereadable(expand("~/.custom.vim"))
   source ~/.custom.vim
 endif
+
+"go key bindings
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+autocmd FileType go nnoremap <leader>got :GoTests<cr>
