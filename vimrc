@@ -66,6 +66,12 @@ au BufRead,BufNewFile *.rake,*.rabl,*.jbuilder setf ruby
 au FileType python setlocal tabstop=4|setlocal shiftwidth=4
 au FileType go setlocal noexpandtab|setlocal tabstop=8|setlocal shiftwidth=8
 au FileType proto setlocal smartindent
+autocmd! BufWritePost vimrc source $MYVIMRC
+augroup myvimrchooks
+  " clears myvimrchooks group, to not repeat the autocmd below
+  au!
+  autocmd BufWritePost vimrc source $MYVIMRC
+augroup END
 
 set laststatus=2
 
@@ -84,8 +90,24 @@ set wildmenu
 set wildmode=list:longest,full
 
 " Show me where 80 chars is
-set colorcolumn=80
 hi ColorColumn ctermbg=235 guibg=#2c2d27
+augroup BgHighlight
+  autocmd!
+  autocmd WinEnter * set colorcolumn=80
+  autocmd WinLeave * set colorcolumn=0
+augroup END
+
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+augroup cline
+    au!
+    au WinLeave * set nocursorline
+    au WinEnter * set cursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+augroup END
+" }}}
+
 
 """""""""""""""""""""""""
 " Keybindings
@@ -105,7 +127,10 @@ nnoremap <leader>b <C-^>
 
 noremap k gk
 noremap j gj
-nnoremap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
+
+nnoremap <leader>pi :PlugInstall<cr>
+
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
 
 " json
 nnoremap <silent> <leader>jj :%!python -m json.tool<cr>
