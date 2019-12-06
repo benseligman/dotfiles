@@ -46,3 +46,5 @@ git_dirty() {
 
 # This prompt works in oh-my-zsh because og git_prompt_info magic.
 PROMPT='%F{green}%c%F{cyan}$(git_prompt_info) %F{cyan}%`git_dirty` %f%F{red}❥ %f'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

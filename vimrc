@@ -15,7 +15,7 @@ Plug 'tpope/vim-commentary' "commenting with gc
 Plug 'tpope/vim-endwise' "end blocks
 Plug 'tpope/vim-fugitive'  "git
 Plug 'tpope/vim-repeat'  "repeat custom commands
-Plug 'tpope/vim-surround'  "repeat custom commands
+Plug 'tpope/vim-surround'  "surround custom commands
 Plug 'tpope/vim-unimpaired' "bracket mappings
 Plug 'tpope/vim-vinegar' "netrw more nicely
 
@@ -114,6 +114,7 @@ nnoremap <silent> <leader>jj :%!python -m json.tool<cr>
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <Leader>h :History<cr>
+nnoremap <silent> <Leader>t :Tags<cr>
 nnoremap <Leader>a :Ag 
 
 " open netrw
