@@ -35,6 +35,9 @@ Plug 'junegunn/vim-xmark', { 'do': 'make' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'buoto/gotests-vim', { 'for': 'go' }
 
+" haskell
+Plug 'dag/vim2hs', { 'for': 'haskell' }
+
 call plug#end()
 
 " Display options
@@ -45,6 +48,7 @@ syntax on
 set t_Co=256
 set number
 set nowrap
+set linebreak
 set lazyredraw
 
 runtime macros/matchit.vim
@@ -118,6 +122,7 @@ nnoremap <silent> <Leader>s :Sexplore<cr>
 
 nnoremap <silent> <leader>; :nohl<cr>
 vnoremap s :!sort<CR>
+nnoremap <silent> <leader>w :set wrap!<cr>
 noremap Q @q
 
 function! RenameFile()
