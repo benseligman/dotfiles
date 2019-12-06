@@ -15,6 +15,7 @@ Plug 'tpope/vim-commentary' "commenting with gc
 Plug 'tpope/vim-endwise' "end blocks
 Plug 'tpope/vim-fugitive'  "git
 Plug 'tpope/vim-repeat'  "repeat custom commands
+Plug 'tpope/vim-surround'  "repeat custom commands
 Plug 'tpope/vim-unimpaired' "bracket mappings
 Plug 'tpope/vim-vinegar' "netrw more nicely
 
@@ -63,8 +64,8 @@ au FileType go setlocal noexpandtab|setlocal tabstop=8|setlocal shiftwidth=8
 set laststatus=2
 
 " Misc
-set directory=/tmp "sets the swap (.swp) file directory
-set backupdir=/tmp
+set noswapfile
+set nobackup
 
 " Search settings
 set ignorecase
@@ -97,13 +98,16 @@ noremap k gk
 noremap j gj
 nmap <leader>pi :source ~/.vimrc<cr>:PlugInstall<cr>
 
+" json
+nnoremap <silent> <leader>j :%!python -m json.tool<cr>
+
 " fzf shortcuts
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <Leader>h :History<cr>
 
 " open netrw
 nnoremap <silent> <Leader>v :Vexplore<cr>
-nnoremap <silent> <Leader>s :Explore<cr>
+nnoremap <silent> <Leader>s :Sexplore<cr>
 
 " save faster
 nnoremap <leader>w :w!<cr>
@@ -124,3 +128,7 @@ function! RenameFile()
   endif
 endfunction
 map <Leader>n :call RenameFile()<cr>
+
+if filereadable(expand("~/.custom.vim"))
+  source ~/.custom.vim
+endif
