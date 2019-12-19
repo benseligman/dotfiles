@@ -38,6 +38,8 @@ Plug 'buoto/gotests-vim', { 'for': 'go' }
 " haskell
 Plug 'dag/vim2hs', { 'for': 'haskell' }
 
+Plug 'mhinz/vim-signify'
+
 call plug#end()
 
 " Display options
