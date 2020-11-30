@@ -159,7 +159,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <Leader>h :History<cr>
 nnoremap <silent> <Leader>t :Tags<cr>
-nnoremap <Leader>a :Ag 
+nnoremap <silent> <leader>a :Ag 
 
 " open netrw
 nnoremap <silent> <Leader>v :Vexplore<cr>
@@ -272,7 +272,6 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
