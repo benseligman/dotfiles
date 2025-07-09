@@ -6,9 +6,18 @@ if [ ! -e ~/.vim/autoload/plug.vim ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-cwd=`pwd`
-echo "creating symlinks"
-for file in vimrc tmux.conf zshrc aliasrc inputrc; do
-  echo " * $file"
-  ln -sf $cwd/$file $HOME/.$file
-done
+# Define your dotfiles directory
+DOTFILES_DIR="$HOME/dotfiles"
+
+# Change to the dotfiles directory
+cd "$DOTFILES_DIR" || { echo "Error: Could not change to dotfiles directory."; exit 1; }
+
+echo "Stowing dotfiles..."
+
+# Stow each package
+stow zsh
+stow vim
+stow tmux
+stow nvim
+
+echo "Dotfiles stowed successfully!"

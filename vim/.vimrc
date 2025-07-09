@@ -8,8 +8,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "fuzzy finder
 Plug 'junegunn/fzf.vim' "finder vim bindings
 Plug 'kana/vim-textobj-user' "user text objects
-Plug 'nanotech/jellybeans.vim' "colors
 Plug 'scrooloose/syntastic' "syntax
+Plug 'nanotech/jellybeans.vim' "colors
 Plug 'tpope/vim-abolish' "word variants
 Plug 'tpope/vim-commentary' "commenting with gc
 Plug 'tpope/vim-endwise' "end blocks

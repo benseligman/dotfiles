@@ -11,6 +11,7 @@ alias gnope="git reset --hard"
 
 alias v="vim"
 alias vi="vim"
+alias n="nvim"
 
 alias dot="cd ~/dotfiles"
 
